@@ -27,19 +27,14 @@ namespace myPackages
         }
         public static int getNumber(string question)
         {
-            while (true)
+            Console.Write(question);
+            
+            if (!(int.TryParse(Console.ReadLine(), out int number)))
             {
-                Console.Write(question);
-                try
-                {
-                    int number = int.Parse(Console.ReadLine());
-                    return number;
-                }
-                catch
-                {
-                    Console.WriteLine("ERROR : the number should be an integer\n");
-                }
+                Console.WriteLine("ERROR : the number should be an integer\n");
+                return getNumber(question);
             }
+            return number;
         }
 
     }
